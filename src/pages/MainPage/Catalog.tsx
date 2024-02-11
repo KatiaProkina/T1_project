@@ -14,45 +14,57 @@ const Catalog = () => {
 
   const ProductCard = ({ id, name, price }) => (
     <div key={id} className="product-card">
-      <h3>{name}</h3>
-      <p>Price: {price} $</p>
       <img src={image} alt="product image" />
+      <h3 className="title-product-card">{name}</h3>
+      <p className="price-product-card"> {price} $</p>
     </div>
   );
   return (
-    <div clsssName="catalog-main">
-      <div clsssName="catalog-filters">
-        <h3>Selection by parameters</h3>
-        <h4>Category</h4>
-        <table>
-          <tbody>
-            <tr>
-              <td>smartphones</td>
-              <td>laptops</td>
-            </tr>
-            <tr>
-              <td>sneakers</td>
-              <td>sneakers</td>
-            </tr>
-            <tr>
-              <td>sneakers</td>
-              <td>sneakers</td>
-            </tr>
-            <tr>
-              <td>sneakers</td>
-              <td>sneakers</td>
-            </tr>
-          </tbody>
-        </table>
-        <button className="catalog-filter-btn-apply">Apply</button>
-        <button className="catalog-filter-btn-reset">Reset</button>
+    <div className="catalog-main">
+      <h2 className="title-catalog-block">Catalog</h2>
+      <div className="catalog-area">
+        <div className="catalog-filters">
+          <div className="title-filter-block">
+            <div class="line">Selection</div>
+            <div class="line">by parameters</div>
+          </div>
+          <h4 className="subtitle-filter-block">Category</h4>
+          <table className="table-filter">
+            <tbody>
+              <tr>
+                <td>smartphones</td>
+                <td>laptops</td>
+              </tr>
+              <tr>
+                <td>sneakers</td>
+                <td>sneakers</td>
+              </tr>
+              <tr>
+                <td>sneakers</td>
+                <td>sneakers</td>
+              </tr>
+              <tr>
+                <td>sneakers</td>
+                <td>sneakers</td>
+              </tr>
+            </tbody>
+          </table>
+          <button className="catalog-filter-btn-apply">Apply</button>
+          <button className="catalog-filter-btn-reset">Reset</button>
+        </div>
+        <div className="catalog-product-block">
+          <div className="catalog-product-list">
+            {products.map((product) => (
+              <ProductCard
+                key={product.id}
+                {...product}
+                className="product_card"
+              />
+            ))}
+          </div>
+          <button className="catalog-product-btn">Show more</button>
+        </div>
       </div>
-      <div className="catalog-product-list">
-        {products.map((product) => (
-          <ProductCard key={product.id} {...product} />
-        ))}
-      </div>
-      <button className="catalog-product-btn">Show more</button>
     </div>
   );
 };
