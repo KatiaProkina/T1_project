@@ -1,5 +1,5 @@
 import line from '../../../public/img/Line.png';
-import img from '../../../public/img/information-block-img.jpeg';
+import img from '../../../public/img/information-block-img.png';
 import figura from '../../../public/img/figure.png';
 
 const InformationBlock = () => {
@@ -9,17 +9,24 @@ const InformationBlock = () => {
       <div className="information-block">
         <h3 className="title-information-block">About us</h3>
         <div className="information-block-paragraph">
-          Every day a person has a choice what to spend his money on. Stores and
-          websites offer an endless list of products. But we will help you make
-          the right choice!
+          <div>
+            Every day a person has a choice what to spend his money on. Stores
+            and websites offer an endless list of products.
+          </div>
+          <div>But we will help you make the right choice!</div>
         </div>
         <div className="goods">
           <img src={line} alt="line" className="goods-line" />
           <p className="logo-information-paragrapgh">Goods4you</p>
         </div>
       </div>
-
-      <img src={img} alt="information-block-img" />
+      <div>
+        <img
+          src={img}
+          alt="information-block-img"
+          className="information-block-img"
+        />
+      </div>
     </div>
   );
 };

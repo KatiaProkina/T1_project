@@ -1,49 +1,45 @@
 import React, { useState } from 'react';
 import './MainPage.css';
+import plusIcon from '../../../public/img/vector1.svg';
 
 interface AccordionItemProps {
   title: string;
+  content: string;
 }
 
-const FAQ: React.FC<AccordionItemProps> = ({ title, children }) => {
-  const [isOpen, setIsOpen] = useState(false);
+const FAQ: React.FC = () => {
+  const accordions: AccordionItemProps[] = [
+    { title: 'Question 1', content: 'Long answer to the first question' },
+    { title: 'Question 2', content: 'Long answer to the second question' },
+  ];
 
-  const toggleAccordion = () => {
-    setIsOpen((prevIsOpen) => !prevIsOpen);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const toggleAccordion = (index: number) => {
+    setOpenIndex((prevIndex) => (prevIndex === index ? null : index));
   };
 
   return (
     <div className="faq-container">
       <div className="faq-block">
         <h2 className="faq-block-title">FAQ</h2>
-        <div className="accordeon">
-          <div className="accordion-header" onClick={toggleAccordion}>
-            <h3 className="accordeon-title">Question 1</h3>
-            <button className={isOpen ? 'rotate' : ''}>
-              {isOpen ? 'x' : '+'}
-            </button>
-          </div>
-          {isOpen && (
-            <div className="accordeon-children">
-              {' '}
-              <p>Long answer to the first question</p>
+        {accordions.map((accordion, index) => (
+          <div className="accordeon" key={index}>
+            <div
+              className="accordion-header"
+              onClick={() => toggleAccordion(index)}>
+              <h3 className="accordeon-title">{accordion.title}</h3>
+              <button className={openIndex === index ? 'rotate' : ''}>
+                <img src={plusIcon} alt="icon" />
+              </button>
             </div>
-          )}
-        </div>
-        <div className="accordeon accordeon-2">
-          <div className="accordion-header" onClick={toggleAccordion}>
-            <h3 className="accordeon-title">Question 2</h3>
-            <button className={isOpen ? 'rotate' : ''}>
-              {isOpen ? 'x' : '+'}
-            </button>
+            {openIndex === index && (
+              <div className="accordeon-children">
+                <p>{accordion.content}</p>
+              </div>
+            )}
           </div>
-          {isOpen && (
-            <div className="accordeon-children">
-              {' '}
-              <p>Long answer to the first question</p>
-            </div>
-          )}
-        </div>
+        ))}
       </div>
     </div>
   );

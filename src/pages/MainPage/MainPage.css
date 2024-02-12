@@ -24,6 +24,11 @@
   color: #fff;
   opacity: 0.12;
 }
+@media (max-width: 1060px) {
+  .header::before {
+    display: none;
+  }
+}
 .header-menu {
   display: flex;
   align-items: center;
@@ -41,11 +46,32 @@
   color: white;
   margin-right: 195px;
 }
+@media (max-width: 1200px) {
+  .logo {
+    margin-right: 50px;
+  }
+}
+@media (max-width: 1050px) {
+  .logo {
+    margin-right: 10px;
+  }
+}
 .header-nav-link {
   display: flex;
   gap: 38px;
   margin: 0px;
   margin-right: 57.46px;
+}
+@media (max-width: 1050px) {
+  .header-nav-link {
+    gap: 10px;
+    margin-right: 10px;
+  }
+}
+@media (max-width: 600px) {
+  .header-nav-link {
+    display: none;
+  }
 }
 .link {
   text-decoration: none;
@@ -60,6 +86,11 @@
   align-items: center;
   gap: 47.66px;
 }
+@media (max-width: 1050px) {
+  .header-basket-area {
+    gap: 10px;
+  }
+}
 .cart {
   text-decoration: none;
   font-size: 14px;
@@ -71,6 +102,11 @@
   max-width: 580px;
   align-self: start;
   padding-left: 130px;
+}
+@media (max-width: 1200px) {
+  .hero {
+    padding-left: 50px;
+  }
 }
 h1 {
   margin: 0px;
@@ -101,9 +137,19 @@ h1 {
 }
 .catalog-main {
   padding-top: 54px;
-
   padding-right: 130px;
   padding-left: 130px;
+}
+@media (max-width: 1200px) {
+  .catalog-main {
+    padding-left: 50px;
+    padding-right: 0px;
+  }
+}
+@media (max-width: 1070px) {
+  .catalog-main {
+    padding-left: 0px;
+  }
 }
 .title-catalog-block {
   margin: 0px;
@@ -117,6 +163,11 @@ h1 {
   display: flex;
   flex-direction: row;
   gap: 20px;
+}
+@media (max-width: 600px) {
+  .catalog-area {
+    flex-direction: column;
+  }
 }
 .catalog-filters {
   display: flex;
@@ -182,6 +233,11 @@ h1 {
   flex-wrap: wrap;
   justify-content: space-around;
 }
+@media (max-width: 1200px) {
+  .catalog-product-list {
+    justify-content: none;
+  }
+}
 .title-product-card {
   margin: 0px;
   color: #444b58;
@@ -199,6 +255,16 @@ h1 {
 .product-card {
   width: 30%;
   margin-bottom: 20px;
+}
+@media (max-width: 1200px) {
+  .product-card {
+    width: 50%;
+  }
+}
+@media (max-width: 970px) {
+  .product-card {
+    width: 100%;
+  }
 }
 .catalog-product-block {
   display: flex;
@@ -226,14 +292,32 @@ h1 {
   background-color: #484283;
   gap: 41px;
 }
+@media (max-width: 970px) {
+  .information-container {
+    gap: 0px;
+  }
+}
 .figure {
   position: absolute;
   top: 3px;
   left: 3px;
 }
+@media (max-width: 860px) {
+  .figure {
+    display: none;
+  }
+}
 .information-block {
   display: flex;
   flex-direction: column;
+  padding-top: 60px;
+  padding-right: 45px;
+}
+@media (max-width: 970px) {
+  .information-block {
+    padding-top: 0px;
+    padding-right: 0px;
+  }
 }
 .title-information-block {
   margin-top: 0px;
@@ -241,8 +325,11 @@ h1 {
   font-size: 30px;
   font-weight: 700;
   line-height: 43.35px;
+  margin-bottom: 7px;
 }
 .information-block-paragraph {
+  display: flex;
+  flex-direction: column;
   max-width: 380px;
   color: #ffffff;
   font-size: 16px;
@@ -250,7 +337,7 @@ h1 {
   line-height: 22.4px;
 }
 .goods {
-  margin-top: 52px;
+  margin-top: 33px;
   display: flex;
   align-items: center;
   flex-direction: row;
@@ -271,12 +358,27 @@ h1 {
 .information-block-img {
   max-height: 580px;
 }
+@media (max-width: 860px) {
+  .information-block-img {
+    display: none;
+  }
+}
 .selection-container {
   padding: 60px 130px;
+}
+@media (max-width: 670px) {
+  .selection-container {
+    padding: 0px;
+  }
 }
 .selection-block {
   background-color: #fff4ee;
   padding: 40px 100px;
+}
+@media (max-width: 670px) {
+  .selection-block {
+    padding: 0px;
+  }
 }
 .selection-products-list {
   display: flex;
@@ -388,8 +490,13 @@ label {
 .team-container {
   position: relative;
   background-color: #484283;
-  padding: 60px 130px 140px 130px;
+  padding: 60px 130px 120px 130px;
   z-index: 1;
+}
+@media (max-width: 750px) {
+  .team-container {
+    padding: 10px;
+  }
 }
 .team-container-title {
   margin-top: 0px;
@@ -409,27 +516,54 @@ label {
   right: 0px;
   z-index: -1;
 }
-
+@media (max-width: 600px) {
+  .team-members::before {
+    display: none;
+  }
+}
 .team-column {
+  position: relative;
   flex: 0 0 calc(33.333% - 20px);
   margin-bottom: 20px;
 }
 .team-column:nth-child(2) {
   margin-top: 100px;
 }
-
+.team-member-container {
+  position: relative;
+  overflow: hidden;
+}
 .team-member-photo {
   width: 100%;
   height: auto;
   object-fit: cover;
   margin-bottom: 10px;
+  transition: filter 0.3s ease;
+}
+.member-info {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.team-member-container:hover .team-member-photo {
+  filter: brightness(70%);
+}
+
+.team-member-container:hover .member-info {
+  opacity: 1;
 }
 .faq-container {
   display: flex;
   align-items: center;
   justify-content: center;
   padding-bottom: 92px;
-  padding-top: 60px;
+  padding-top: 30px;
 }
 
 .faq-block-title {
@@ -441,8 +575,8 @@ label {
 }
 
 .accordeon {
-  padding-top: 30px;
-  padding-bottom: 40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   border-top: 1px solid #242424;
   border-bottom: 1px solid #242424;
   min-width: 880px;
@@ -450,11 +584,16 @@ label {
   margin: 0 auto;
   box-sizing: border-box;
 }
+@media (max-width: 870px) {
+  .accordeon {
+    min-width: 200px;
+  }
+}
 button {
-  font-size: 40px; /* Размер шрифта для текста внутри кнопки */
+  font-size: 40px;
   border: none;
-  background-color: #fff; /* Цвет фона */
-  color: black; /* Цвет текста */
+  background-color: #fff;
+  color: black;
 }
 
 .rotate {
@@ -500,9 +639,34 @@ button {
   font-weight: 700;
   line-height: 43.35px;
 }
+@media (max-width: 1200px) {
+  .footer-logo {
+    margin-right: 50px;
+  }
+}
+@media (max-width: 670px) {
+  .footer-logo {
+    margin-right: 8px;
+  }
+}
 .footer-nav-link {
   display: flex;
   flex-direction: row;
   justify-content: center;
   gap: 36px;
+}
+@media (max-width: 1050px) {
+  .footer-nav-link {
+    gap: 10px;
+  }
+}
+@media (max-width: 670px) {
+  .footer-nav-link {
+    gap: 3px;
+  }
+}
+@media (max-width: 600px) {
+  .footer-nav-link {
+    display: none;
+  }
 }
