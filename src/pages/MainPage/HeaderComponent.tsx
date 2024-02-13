@@ -9,31 +9,26 @@ const HeaderComponent = () => {
         <ul className="header-nav-link">
           <li className="link">
             <a href="http://" className="link">
-              {' '}
               Catalog
             </a>
           </li>
           <li className="link">
             <a href="http://" className="link">
-              {' '}
               About us
             </a>
           </li>
           <li className="link">
             <a href="http://" className="link">
-              {' '}
               Product selection
             </a>
           </li>
           <li className="link">
             <a href="http://" className="link">
-              {' '}
               Our team
             </a>
           </li>
           <li className="link">
             <a href="http://" className="link">
-              {' '}
               Shipping and payment
             </a>
           </li>

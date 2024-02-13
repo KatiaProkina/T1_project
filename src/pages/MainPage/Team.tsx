@@ -4,7 +4,7 @@ import team_member_3 from '../../../public/img/team_member_3.png';
 import team_member_4 from '../../../public/img/team_member_4.png';
 import team_member_5 from '../../../public/img/team_member_5.png';
 import team_member_6 from '../../../public/img/team_member_6.png';
-import element from '../../../public/img/team-page-element.png';
+
 const Team = () => {
   return (
     <div className="team-container">
