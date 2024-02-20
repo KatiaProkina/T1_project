@@ -4,7 +4,7 @@ import figura from '../../../public/img/figure.png';
 
 const InformationBlock = () => {
   return (
-    <div className="information-container">
+    <div className="information-container" id="about">
       <img src={figura} alt="element" className="figure" />
       <div className="information-block">
         <h3 className="title-information-block">About us</h3>

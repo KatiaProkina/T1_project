@@ -20,7 +20,7 @@ const FAQ: React.FC = () => {
   };
 
   return (
-    <div className="faq-container">
+    <div className="faq-container" id="faq">
       <div className="faq-block">
         <h2 className="faq-block-title">FAQ</h2>
         {accordions.map((accordion, index) => (

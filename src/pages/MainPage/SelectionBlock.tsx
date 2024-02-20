@@ -1,5 +1,5 @@
 import React from 'react';
-import image from '../../../public/img/selection_product.png';
+import SelectionFilters from '../../shared/SelectionFilters';
 
 interface SelectionProduct {
   id: number;
@@ -13,38 +13,31 @@ interface SelectionProductCardProps {
   img: string;
 }
 
-const SelectionProductCard: React.FC<SelectionProductCardProps> = ({
-  id,
-  name,
-  img,
-}) => (
-  <div key={id} className="product-card">
-    <img src={img} alt="product" />
-    <form>
-      <div className="checkbox-container">
-        <input
-          id={`product${id}`}
-          type="checkbox"
-          className="custom-checkbox"
-        />
-        <label htmlFor={`product${id}`}>{name}</label>
-      </div>
-    </form>
-  </div>
-);
-
 const SelectionBlock: React.FC = () => {
   const selectionProducts: SelectionProduct[] = [
-    { id: 1, name: 'sneakers', img: image },
-    { id: 2, name: 'sneakers', img: image },
-    { id: 3, name: 'sneakers', img: image },
-    { id: 4, name: 'sneakers', img: image },
-    { id: 5, name: 'sneakers', img: image },
-    { id: 6, name: 'sneakers', img: image },
+    { id: 1, name: 'sneakers' },
+    { id: 2, name: 'sneakers' },
+    { id: 3, name: 'sneakers' },
+    { id: 4, name: 'sneakers' },
+    { id: 5, name: 'sneakers' },
+    { id: 6, name: 'sneakers' },
+    { id: 7, name: 'sneakers' },
+    { id: 8, name: 'sneakers' },
+    { id: 9, name: 'sneakers' },
+    { id: 10, name: 'sneakers' },
+    { id: 11, name: 'sneakers' },
+    { id: 12, name: 'sneakers' },
+    { id: 13, name: 'sneakers' },
+    { id: 14, name: 'sneakers' },
+    { id: 15, name: 'sneakers' },
+    { id: 16, name: 'sneakers' },
+    { id: 17, name: 'sneakers' },
+    { id: 18, name: 'sneakers' },
+    { id: 19, name: 'sneakers' },
   ];
 
   return (
-    <div className="selection-container">
+    <div className="selection-container" id="selection">
       <div className="selection-block">
         <div className="selection-block-title">
           <h3 className="selection-title">
@@ -59,16 +52,16 @@ const SelectionBlock: React.FC = () => {
           <h4 className="selection-products-block-title">
             What type of product are you considering?
           </h4>
-          <div className="selection-products-list">
+          <SelectionFilters />
+          {/* <div className="selection-products-list">
             {selectionProducts.map((product) => (
               <SelectionProductCard
                 key={product.id}
                 id={product.id}
                 name={product.name}
-                img={product.img}
               />
             ))}
-          </div>
+          </div> */}
         </div>
         <div className="selection-block-pagination">
           <div className="selection-pages">1 of 3</div>

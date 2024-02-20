@@ -7,7 +7,7 @@ import team_member_6 from '../../../public/img/team_member_6.png';
 
 const Team = () => {
   return (
-    <div className="team-container">
+    <div className="team-container" id="team">
       <h3 className="team-container-title">Our team</h3>
       <div class="team-members">
         <div class="team-column">

@@ -1,49 +1,55 @@
-import basket from '../../../public/img/basket.svg';
 import './MainPage.css';
-
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 const HeaderComponent = () => {
+  useEffect(() => {
+    const handleScroll = () => {};
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate('/allproducts');
+  };
+
   return (
     <div className="header">
       <div className="header-menu">
         <span className="logo">Goods4you</span>
         <ul className="header-nav-link">
-          <li className="link">
-            <a href="http://" className="link">
-              Catalog
-            </a>
+          <li className="link" onClick={() => scrollToSection('catalog')}>
+            <span>Catalog</span>
+          </li>
+          <li className="link" onClick={() => scrollToSection('about')}>
+            <span className="link">About us</span>
+          </li>
+          <li className="link" onClick={() => scrollToSection('selection')}>
+            <span className="link">Product selection</span>
           </li>
           <li className="link">
-            <a href="http://" className="link">
-              About us
-            </a>
-          </li>
-          <li className="link">
-            <a href="http://" className="link">
-              Product selection
-            </a>
-          </li>
-          <li className="link">
-            <a href="http://" className="link">
+            <span className="link" onClick={() => scrollToSection('team')}>
               Our team
-            </a>
+            </span>
           </li>
-          <li className="link">
-            <a href="http://" className="link">
-              Shipping and payment
-            </a>
+          <li className="link" onClick={() => scrollToSection('faq')}>
+            <span className="link">FAQ</span>
           </li>
-          <li className="link">
-            <a href="http://" className="link">
-              Contacts
-            </a>
+          <li className="link" onClick={handleClick}>
+            <span className="link">For staff</span>
           </li>
         </ul>
-        <div className="header-basket-area">
-          <a href="http://" className="cart">
-            Cart
-          </a>
-          <img src={basket} alt="Basket" className="basket-icon" />
-        </div>
       </div>
       <div className="hero">
         <div className="hero-content">

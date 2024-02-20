@@ -1,42 +1,39 @@
-import React from 'react';
-import image from '../../../public/img/image.png';
-
-interface Product {
-  id: number;
-  name: string;
-  price: number;
-  img: string;
-}
-
-interface ProductCardProps {
-  id: number;
-  name: string;
-  price: number;
-}
-
-const ProductCard: React.FC<ProductCardProps> = ({ id, name, price }) => (
-  <div key={id} className="product-card">
-    <img src={image} alt="product image" />
-    <h3 className="title-product-card">{name}</h3>
-    <p className="price-product-card">{price} $</p>
-  </div>
-);
+import React, { useState } from 'react';
+import Filters from '../../shared/Filters';
+import ProductCard from '../../shared/ProductCard';
+import { useGetProductsQuery } from '../../store/productsApi';
 
 const Catalog: React.FC = () => {
-  const products: Product[] = [
-    { id: 1, name: 'Nike Air Force 1 07 QS', price: 110, img: image },
-    { id: 2, name: 'Nike Air Force 1 07 QS', price: 110, img: image },
-    { id: 3, name: 'Nike Air Force 1 07 QS', price: 110, img: image },
-    { id: 4, name: 'Nike Air Force 1 07 QS', price: 110, img: image },
-    { id: 5, name: 'Nike Air Force 1 07 QS', price: 110, img: image },
-    { id: 6, name: 'Nike Air Force 1 07 QS', price: 110, img: image },
-    { id: 7, name: 'Nike Air Force 1 07 QS', price: 110, img: image },
-    { id: 8, name: 'Nike Air Force 1 07 QS', price: 110, img: image },
-    { id: 9, name: 'Nike Air Force 1 07 QS', price: 110, img: image },
-  ];
+  const [catalogProducts, setCatalogProducts] = useState(9);
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [filteredProducts, setFilteredProducts] = useState([]);
+
+  const { data: response } = useGetProductsQuery(catalogProducts);
+
+  const handleCategoryChange = (category: string) => {
+    setSelectedCategory(category);
+  };
+
+  const handleApplyFilters = () => {
+    const filteredData = response.products.filter(
+      (product) => product.category === selectedCategory
+    );
+
+    setFilteredProducts(filteredData);
+  };
+
+  if (!response || !response.products) {
+    return <div>Loading...</div>;
+  }
+
+  const { products } = response;
+
+  const handleShowMore = () => {
+    setCatalogProducts((prevVisibleProducts) => prevVisibleProducts + 9);
+  };
 
   return (
-    <div className="catalog-main">
+    <div className="catalog-main" id="catalog">
       <h2 className="title-catalog-block">Catalog</h2>
       <div className="catalog-area">
         <div className="catalog-filters">
@@ -45,41 +42,42 @@ const Catalog: React.FC = () => {
             <div className="line">by parameters</div>
           </div>
           <h4 className="subtitle-filter-block">Category</h4>
-          <table className="table-filter">
-            <tbody>
-              <tr>
-                <td>smartphones</td>
-                <td>laptops</td>
-              </tr>
-              <tr>
-                <td>sneakers</td>
-                <td>sneakers</td>
-              </tr>
-              <tr>
-                <td>sneakers</td>
-                <td>sneakers</td>
-              </tr>
-              <tr>
-                <td>sneakers</td>
-                <td>sneakers</td>
-              </tr>
-            </tbody>
-          </table>
-          <button className="catalog-filter-btn-apply">Apply</button>
+          <Filters
+            onSelectCategory={handleCategoryChange}
+            selectedCategory={selectedCategory}
+          />
+          <button
+            className="catalog-filter-btn-apply"
+            onClick={handleApplyFilters}>
+            Apply
+          </button>
           <button className="catalog-filter-btn-reset">Reset</button>
         </div>
         <div className="catalog-product-block">
           <div className="catalog-product-list">
-            {products.map((product) => (
-              <ProductCard
-                key={product.id}
-                id={product.id}
-                name={product.name}
-                price={product.price}
-              />
-            ))}
+            {filteredProducts.length > 0
+              ? filteredProducts.map((product) => (
+                  <ProductCard
+                    key={product.id}
+                    id={product.id}
+                    title={product.title}
+                    price={product.price}
+                    img={product.thumbnail}
+                  />
+                ))
+              : products.map((product) => (
+                  <ProductCard
+                    key={product.id}
+                    id={product.id}
+                    name={product.name}
+                    price={product.price}
+                    img={product.thumbnail}
+                  />
+                ))}
           </div>
-          <button className="catalog-product-btn">Show more</button>
+          <button className="catalog-product-btn" onClick={handleShowMore}>
+            Show more
+          </button>
         </div>
       </div>
     </div>
