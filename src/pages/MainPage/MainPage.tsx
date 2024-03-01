@@ -1,11 +1,11 @@
-import Catalog from './Catalog';
-import FAQ from './FAQ';
-import Footer from './Footer';
-import HeaderComponent from './HeaderComponent';
-import InformationBlock from './InformationBlock';
+import Catalog from './catalog/Catalog';
+import FAQ from './faq/FAQ';
+import Footer from './footer/Footer';
+import HeaderComponent from './header/HeaderComponent';
+import InformationBlock from './informationBlock/InformationBlock';
 import './MainPage.css';
-import SelectionBlock from './SelectionBlock';
-import Team from './Team';
+import SelectionBlock from './selection/SelectionBlock';
+import Team from './team/Team';
 
 const MainPage = () => {
   return (

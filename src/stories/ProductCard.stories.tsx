@@ -1,6 +1,8 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
-import ProductCard, { ProductCardProps } from '../pages/MainPage/Catalog';
+import ProductCard, {
+  ProductCardProps,
+} from '../pages/MainPage/catalog/Catalog';
 
 export default {
   title: 'Catalog',

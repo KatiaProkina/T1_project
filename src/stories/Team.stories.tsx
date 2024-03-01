@@ -1,5 +1,5 @@
 import React from 'react';
-import Team from '../pages/MainPage/Team';
+import Team from '../pages/MainPage/team/Team';
 
 export default {
   title: 'Team',

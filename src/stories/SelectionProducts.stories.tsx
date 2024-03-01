@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
-import SelectionBlock from '../pages/MainPage/SelectionBlock';
+import SelectionBlock from '../pages/MainPage/selection/SelectionBlock';
 
 export default {
   title: 'SelectionBlock',

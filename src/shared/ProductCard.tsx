@@ -5,6 +5,7 @@ interface ProductCardProps {
   title: string;
   price: number;
   img: string;
+  onClick?: () => void;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({

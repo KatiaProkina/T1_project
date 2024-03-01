@@ -1,5 +1,5 @@
 import React from 'react';
-import HeaderComponent from '../pages/MainPage/HeaderComponent';
+import HeaderComponent from '../pages/MainPage/header/HeaderComponent';
 export default {
   title: 'Header',
   component: HeaderComponent,

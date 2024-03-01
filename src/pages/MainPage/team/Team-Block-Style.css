@@ -1,0 +1,71 @@
+.team-container {
+  position: relative;
+  background-color: #484283;
+  padding: 60px 130px 120px 130px;
+  z-index: 1;
+}
+@media (max-width: 750px) {
+  .team-container {
+    padding: 10px;
+  }
+}
+.team-container-title {
+  margin-top: 0px;
+  color: #ffffff;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 43.35px;
+}
+.team-members {
+  display: flex;
+  justify-content: space-between;
+}
+.team-members::before {
+  content: url(../../../../public/img/team-page-element.png);
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  z-index: -1;
+}
+@media (max-width: 600px) {
+  .team-members::before {
+    display: none;
+  }
+}
+.team-column {
+  position: relative;
+  flex: 0 0 calc(33.333% - 20px);
+  margin-bottom: 20px;
+}
+.team-column:nth-child(2) {
+  margin-top: 100px;
+}
+.team-member-container {
+  position: relative;
+  overflow: hidden;
+}
+.team-member-photo {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  margin-bottom: 10px;
+  transition: filter 0.3s ease;
+}
+.member-info {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.team-member-container:hover .team-member-photo {
+  filter: brightness(70%);
+}
+
+.team-member-container:hover .member-info {
+  opacity: 1;
+}

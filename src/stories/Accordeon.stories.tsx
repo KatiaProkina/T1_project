@@ -1,6 +1,6 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
-import FAQ from '../pages/MainPage/FAQ';
+import FAQ from '../pages/MainPage/faq/FAQ';
 
 export default {
   component: FAQ,

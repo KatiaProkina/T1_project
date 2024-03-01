@@ -4,7 +4,7 @@ import ProductCard from './ProductCard';
 import { useState } from 'react';
 
 import { useNavigate } from 'react-router-dom';
-const DELAY = 70000;
+
 const Products = ({ searchQuery }) => {
   const [visibleProducts, setVisibleProducts] = useState(9);
 

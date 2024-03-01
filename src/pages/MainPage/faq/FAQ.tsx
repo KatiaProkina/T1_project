@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import './MainPage.css';
-import plusIcon from '../../../public/img/vector1.svg';
+import './FAQ-Style.css';
+import plusIcon from '../../../../public/img/vector1.svg';
 
 interface AccordionItemProps {
   title: string;

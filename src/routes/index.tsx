@@ -1,12 +1,12 @@
 import { createBrowserRouter } from 'react-router-dom';
 import AllProducts from '../pages/AllProducts/AllProducts';
 import ProductPage from '../pages/AllProducts/ProductPage';
-import Catalog from '../pages/MainPage/Catalog';
-import FAQ from '../pages/MainPage/FAQ';
-import InformationBlock from '../pages/MainPage/InformationBlock';
+import Catalog from '../pages/MainPage/catalog/Catalog';
+import FAQ from '../pages/MainPage/faq/FAQ';
+import InformationBlock from '../pages/MainPage/informationBlock/InformationBlock';
 import MainPage from '../pages/MainPage/MainPage';
-import SelectionBlock from '../pages/MainPage/SelectionBlock';
-import Team from '../pages/MainPage/Team';
+import SelectionBlock from '../pages/MainPage/selection/SelectionBlock';
+import Team from '../pages/MainPage/team/Team';
 
 export const router = createBrowserRouter([
   {
